@@ -28,6 +28,8 @@ SELECT * FROM film
 WHERE NOT length > 50 AND rental_rate != 2.99 AND rental_rate != 4.99;
 ```
 
+
+
 # Ödev-2
 ### 1-film tablosunda bulunan tüm sütunlardaki verileri replacement cost değeri 12.99 dan büyük eşit ve 16.99 küçük olma koşuluyla sıralayınız ( BETWEEN - AND yapısını kullanınız.)
 ```
@@ -46,6 +48,8 @@ WHERE first_name IN('Penelope', 'Nick', 'Ed');
 SELECT * FROM film
 WHERE rental_rate IN(0.99, 2.99, 4.99) AND replacement_cost IN(12.99, 15.99, 28.99);
 ```
+
+
 
 # Ödev-3
 ### 1-country tablosunda bulunan country sütunundaki ülke isimlerinden 'A' karakteri ile başlayıp 'a' karakteri ile sonlananları sıralayınız.
@@ -70,4 +74,35 @@ WHERE title ILIKE '%t%t%t%t%;'
 ```
 SELECT * FROM film
 WHERE title LIKE 'C%' AND length > 90 AND 'rental_rate' = 2.99;
+```
+
+
+
+# Ödev 4
+### 1-film tablosunda bulunan replacement_cost sütununda bulunan birbirinden farklı değerleri sıralayınız.
+```
+SELECT DISTINCT replacement_cost FROM film;
+```
+
+### 2-film tablosunda bulunan replacement_cost sütununda birbirinden farklı kaç tane veri vardır?
+```
+SELECT COUNT(DISTINCT replacement_cost) FROM film;
+```
+
+### 3-film tablosunda bulunan film isimlerinde (title) kaç tanesini T karakteri ile başlar ve aynı zamanda rating 'G' ye eşittir?
+```
+SELECT COUNT(*) FROM film
+WHERE title LIKE 'T%' AND rating = 'G';
+```
+
+### 4-country tablosunda bulunan ülke isimlerinden (country) kaç tanesi 5 karakterden oluşmaktadır?
+```
+SELECT COUNT(*) FROM country
+WHERE LENGTH(country) = 5;
+```
+
+### 5-city tablosundaki şehir isimlerinin kaç tanesi 'R' veya r karakteri ile biter?
+```
+SELECT COUNT(*) FROM city
+WHERE title ILIKE '%r';
 ```
